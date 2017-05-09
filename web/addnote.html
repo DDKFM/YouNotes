@@ -29,52 +29,19 @@
 </head>
 <body>
 <div class="container">
-<div id="content">
+    <div id="content">
 
-<h4 id="loginHeader">LOGIN</h4>
+      <h4 id="loginHeader">NOTIZ</h4>
 
-<form action="/login" method="POST">
-    Benutzername: <input type="text" name="username"/><br/>
-    Passwort: <input type="password" name="password"/>
-    <button type="submit" class="btn btn-default">Absenden</button>
-</form>
+        <form action="/addNote" method="POST">
 
-<a class="btn-floating btn-large waves-effect waves-light teal" id="register" href="#modal1">
-  <i class="material-icons">add</i>
-</a>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-<div id="divAddUser" class="modal-content">
-  <form action="/register" method="POST">
-    <h5>NEU?!</h5>
-    <div class="form-group">
-      <label for="fieldUsername">Benutzername:</label>
-      <input type="text" class="form-control" id="fieldUsername">
-    </div>
-
-    <div class="form-group">
-      <label for="fieldEMail">Email Adresse:</label>
-      <input type="email" class="form-control" id="fieldEMail">
-    </div>
-
-    <div class="form-group">
-      <label for="fieldPassword">Password:</label>
-      <input type="password" class="form-control" id="fieldPassword">
-    </div>
-
-    <div class="form-group">
-      <label for="fieldPasswordRepeat">Password wiederholen:</label>
-      <input type="password" class="form-control" id="fieldPasswordRepeat">
-    </div>
-    <button type="submit" class="btn btn-default">
-      Registrieren
-    </button>
-
-  </form>
-</div>
-
-</div>
+            <label for="fieldTitleNote">Titel</label>
+            <input type="text" name="titel"/><br/>
+            <label for="fieldNote">Notiz</label>
+            <textarea id="NoteField" class="materialize-textarea"></textarea>
+            <button type="submit" class="btn btn-default">speichern</button>
+            <a class="btn btn-default" href="#">abbrechen</a>
+          </form>
 </div>
 </div>
 </body>
