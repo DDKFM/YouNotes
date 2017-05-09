@@ -22,32 +22,5 @@
   </head>
   <body>
   <h1>HelloWorld</h1>
-  <div id="divAddUser">
-    <form action="/register" method="POST">
-      <div class="form-group">
-        <label for="fieldUsername">Benutzername:</label>
-        <input type="text" class="form-control" id="fieldUsername">
-      </div>
-
-      <div class="form-group">
-        <label for="fieldEMail">Email Adresse:</label>
-        <input type="email" class="form-control" id="fieldEMail">
-      </div>
-
-      <div class="form-group">
-        <label for="fieldPassword">Password:</label>
-        <input type="password" class="form-control" id="fieldPassword">
-      </div>
-
-      <div class="form-group">
-        <label for="fieldPasswordRepeat">Password wiederholen:</label>
-        <input type="password" class="form-control" id="fieldPasswordRepeat">
-      </div>
-      <button type="submit" class="btn btn-default">
-        Registrieren
-      </button>
-
-    </form>
-  </div>
   </body>
 </html>
