@@ -1,10 +1,7 @@
 <!--<%@ page import="de.mschaedlich.servlets.LoginServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
 <html>
-  <head>
-    <title>Simple Notes</title>
-    <html lang="en">
-    <head>
+      <head>
         <meta charset="UTF-8">
         <title>youNOTE</title>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -30,7 +27,7 @@
                 $(".button-collapse").sideNav();
             });
         </script>
-    <script type="text/javascript" src="index.jsp"></script>
+    <script type="text/javascript" src="login.jsp"></script>
   <!--  <%
       if(!LoginServlet.isLoggedIn(request))
           response.sendRedirect("login.jsp");
@@ -72,11 +69,29 @@
     </ul>
   </div> -->
 
+<div id="container1">
+    <div id="SpaceTopDash">
 
-    <div class="container">
-      <div id="content">
-        <h4>DASHBOARD</h4>
-      </div>
-    </div>
+        <div class="row">
+          <div class="col s12"><h4 id="header">DASHBOARD</h4></div>
+        </div>
+
+        <!--Content, hier sollen die Notizen stehen-->
+        <div class="row">
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
+        </div>
+
+   </div>
+</div>
   </body>
 </html>

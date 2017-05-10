@@ -8954,7 +8954,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 #content{
   margin-top:12%;
 }
-#loginHeader{
+#SpaceTopDash{
+  margin-top: 5%;
+}
+#loginHeader, #header{
   font-weight:bold;
   padding-bottom:0.5em;
   color: teal;
@@ -8963,4 +8966,13 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
    position: fixed;
    bottom: 15px;
    right: 15px;
+}
+#container1{
+  width: 90%;
+  margin: auto;
+}
+#noteContainer{
+  padding: 1em;
+  margin: 0.5em;
+  background-color: silver;
 }
