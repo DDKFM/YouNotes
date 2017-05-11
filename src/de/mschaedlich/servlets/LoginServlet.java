@@ -1,5 +1,7 @@
 package de.mschaedlich.servlets;
 
+import de.mschaedlich.domain.User;
+import de.mschaedlich.util.UserAdministration;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.ServletException;
@@ -23,8 +25,9 @@ public class LoginServlet extends HttpServlet {
             String username = req.getParameter("username");
             String password = req.getParameter("password");
             password = DigestUtils.sha256Hex(password);
-            String root = DigestUtils.sha256Hex("root");
-            if(password.equalsIgnoreCase(root)) {
+
+            User user = UserAdministration.getUserByUsername(username);
+            if(user != null && password.equalsIgnoreCase(user.getPassword())) {
                 req.getSession().setAttribute("username", username);
                 resp.sendRedirect("index.jsp");
             } else {
