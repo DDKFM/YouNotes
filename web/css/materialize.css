@@ -8975,9 +8975,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   padding: 1em;
   margin: 0.5em;
   background-color: silver;
-  -webkit-box-shadow: 3px 3px 5px grey;
-  -moz-box-shadow: 3px 3px 5px grey;
-  box-shadow: 3px 3px 5px grey;
+  -webkit-box-shadow: 1px 1px 3px grey;
+  -moz-box-shadow: 1px 1px 3px grey;
+  box-shadow: 1px 1px 3px grey;
+  border-radius: 2px;
 }
 button{
   margin-bottom: 0.5em;
