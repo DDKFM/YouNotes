@@ -8962,7 +8962,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   padding-bottom:0.5em;
   color: teal;
 }
-#register, #new{
+#register, #new, #add{
    position: fixed;
    bottom: 15px;
    right: 15px;
@@ -8979,6 +8979,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   -moz-box-shadow: 1px 1px 3px grey;
   box-shadow: 1px 1px 3px grey;
   border-radius: 2px;
+  cursor: pointer;
+  color: black;
 }
 button{
   margin-bottom: 0.5em;
@@ -8987,4 +8989,8 @@ button{
 #modal1{
   width: 90%;
   height: 90%;
+}
+#modalMenueBar{
+  position: fixed;
+  bottom: 15px;
 }
