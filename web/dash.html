@@ -25,6 +25,7 @@
             $(document).ready(function(){
                 $('.modal').modal();
                 $(".button-collapse").sideNav();
+
             });
         </script>
     <script type="text/javascript" src="login.jsp"></script>
@@ -76,21 +77,39 @@
 
         <!--Content, hier sollen die Notizen stehen-->
         <div class="row"> <!--noteContainer soll dynamisch mit Daten aus der DB erzeugt werden-->
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
 
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3</div></div>
+          <div class="col s12 m6 l3">
+            <a href="#modalMenueBar"><!-- A Tag nur bei Modal interessant sonst raus damit-->
+            <div id="noteContainer">
+              <h5 id="title">Note1</h5>
+              <p id="content">Das ist die erste Notiz.</p>
+            </div>
+          </a>
+          </div>
+
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
+
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
+          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
+
+          <!-- MenueBar
+          <div id="modalMenueBar" class="modal">
+              <div class="modal-content horizontal">
+                <a class="btn-flat">löschen</a>
+                <a class="btn-flat">bearbeiten</a>
+              </div>
+          </div>-->
+
         </div>
 
    </div>
 </div>
 
-<a class="btn-floating btn-large teal" id="new" href="#modal1">
+<a class="btn-floating btn-large teal" id="add" href="#modal1">
     <i class="large material-icons">mode_edit</i>
 </a>
 
