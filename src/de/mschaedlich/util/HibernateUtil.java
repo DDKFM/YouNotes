@@ -28,6 +28,7 @@ public class HibernateUtil {
 
             factory = config.buildSessionFactory();
             UserAdministration.setSessionFactory(factory);
+            NoticeAdministration.setSessionFactory(factory);
         }
     }
 }
