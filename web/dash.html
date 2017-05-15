@@ -33,7 +33,7 @@
           response.sendRedirect("login.jsp");
     %> -->
   </head>
-  
+
   <body>
 
     <div class="navbar-fixed">
@@ -53,9 +53,6 @@
       </nav>
     </div>
 
-    <a class="btn-floating btn-large teal" id="new" href="addnote.html">
-        <i class="large material-icons">mode_edit</i>
-    </a>
 
 <!-- Max kannst es mal anschauen ... sieht auch gut aus
   <div class="fixed-action-btn toolbar">
@@ -92,5 +89,27 @@
 
    </div>
 </div>
+
+<a class="btn-floating btn-large teal" id="new" href="#modal1">
+    <i class="large material-icons">mode_edit</i>
+</a>
+
+  <div id="modal1" class="modal">
+      <div id="addnote" class="modal-content">
+        <h4 id="loginHeader">NOTIZ</h4>
+
+          <form action="/addNote" method="POST">
+
+              <label for="fieldTitleNote">Titel</label>
+              <input type="text" name="titel"/><br/>
+              <label for="fieldNote">Notiz</label>
+              <textarea id="NoteField" class="materialize-textarea"></textarea>
+              <button type="submit" class="btn btn-default" onclick="Materialize.toast('GESPEICHERT', 4000)">speichern</button>
+              <a class="btn btn-default" href="dash.html">zurück</a>
+          </form>
+      </div>
+    </div>
+
+
   </body>
 </html>
