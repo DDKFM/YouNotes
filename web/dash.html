@@ -79,12 +79,17 @@
         <div class="row"> <!--noteContainer soll dynamisch mit Daten aus der DB erzeugt werden-->
 
           <div class="col s12 m6 l3">
-            <a href="#modalMenueBar"><!-- A Tag nur bei Modal interessant sonst raus damit-->
             <div id="noteContainer">
-              <h5 id="title">Note1</h5>
-              <p id="content">Das ist die erste Notiz.</p>
+
+              <a class="btn-floating btn-small teal" id="del"><!--delete button-->
+                <i class="material-icons">delete</i>
+              </a>
+
+              <h5 id="NoteTitle">Note1</h5><!--title-->
+                <div id="NoteContent">
+                  <p>Das ist die erste Notiz.</p><!--content-->
+                </div>
             </div>
-          </a>
           </div>
 
           <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>

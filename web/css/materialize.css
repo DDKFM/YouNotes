@@ -8994,3 +8994,8 @@ button{
   position: fixed;
   bottom: 15px;
 }
+#del{
+  top: 1px;
+  position: inherit;
+  float: right;
+}
