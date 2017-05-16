@@ -8971,7 +8971,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   width: 90%;
   margin: auto;
 }
-#noteContainer{
+.noteContainer{
   padding: 1em;
   margin: 0.5em;
   background-color: silver;
@@ -8994,7 +8994,7 @@ button{
   position: fixed;
   bottom: 15px;
 }
-#del{
+.del{
   top: 1px;
   position: inherit;
   float: right;

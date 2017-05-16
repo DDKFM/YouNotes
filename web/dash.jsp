@@ -1,5 +1,6 @@
-<!--<%@ page import="de.mschaedlich.servlets.LoginServlet" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
+<%@ page import="de.mschaedlich.servlets.LoginServlet" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
       <head>
         <meta charset="UTF-8">
@@ -25,14 +26,49 @@
             $(document).ready(function(){
                 $('.modal').modal();
                 $(".button-collapse").sideNav();
-
+                loadNotices();
             });
+            function loadNotices() {
+                $("#notePanel").empty();
+                $.ajax({
+                    type: "POST",
+                    url: "notice",
+                    data: "requested=all",
+                    success: function(data) {
+                        var array = data.data;
+                        for(var noticeIndex = 0 ; noticeIndex < array.length ; noticeIndex++) {
+                            var notice = array[noticeIndex];
+                            var div = "<div class=\"col s12 m6 13\">";
+                            div += "<div class=\"noteContainer\" id=\"noteContainer_" + notice.id + "\">";
+                            div += "<a class=\"btn-floating btn-small teal del\"><i class=\"material-icons\" id=\"" + notice.id + "\">delete</i></a>";
+                            div += "<h5 id=\"NoteTitle\">" + notice.title + "</h5>";
+                            div += "<div id=\"NoteContent\">";
+                            div += "<p>" + notice.content + "</p>";
+                            div += "</div></div></div>";
+
+                            $("#notePanel").append(div);
+                            $("#noteContainer_" + notice.id + " .material-icons").click(function(event) {
+                                var noticeId = $(event.target).attr("id");
+                                $.ajax({
+                                    type: "POST",
+                                    url: "notice",
+                                    data: "requested=remove&noticeID=" + noticeId,
+                                    complete: function(data) {
+                                        $("#noteContainer_" + noticeId).fadeOut("slow");
+                                        loadNotices();
+                                    }
+                                });
+                            })
+                        }
+                    }
+                })
+            }
         </script>
     <script type="text/javascript" src="login.jsp"></script>
-  <!--  <%
-      if(!LoginServlet.isLoggedIn(request))
-          response.sendRedirect("login.jsp");
-    %> -->
+        <%
+          if(!LoginServlet.isLoggedIn(request))
+              response.sendRedirect("login.jsp");
+        %>
   </head>
 
   <body>
@@ -42,12 +78,12 @@
         <div class="nav-wrapper teal">
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="left hide-on-med-and-down">
-            <li class="active"><a href="dash.html">DASH</a></li>
+            <li class="active"><a href="dash.jsp">DASH</a></li>
             <li><a href="#modal1">NEU</a></li>
           </ul>
           <ul class="side-nav" id="mobile-demo">
             <li>Menü</li>
-            <li><a href="dash.html">DASH</a></li>
+            <li><a href="dash.jsp">DASH</a></li>
             <li><a href="#modal1">NEU</a></li>
           </ul>
         </div>
@@ -76,31 +112,7 @@
         </div>
 
         <!--Content, hier sollen die Notizen stehen-->
-        <div class="row"> <!--noteContainer soll dynamisch mit Daten aus der DB erzeugt werden-->
-
-          <div class="col s12 m6 l3">
-            <div id="noteContainer">
-
-              <a class="btn-floating btn-small teal" id="del"><!--delete button-->
-                <i class="material-icons">delete</i>
-              </a>
-
-              <h5 id="NoteTitle">Note1</h5><!--title-->
-                <div id="NoteContent">
-                  <p>Das ist die erste Notiz.</p><!--content-->
-                </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
-
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
-          <div class="col s12 m6 l3"><div id="noteContainer">s12 m6 l3></div></div>
-
+        <div class="row" id="notePanel"> <!--noteContainer soll dynamisch mit Daten aus der DB erzeugt werden-->
           <!-- MenueBar
           <div id="modalMenueBar" class="modal">
               <div class="modal-content horizontal">
@@ -129,7 +141,7 @@
               <label for="fieldNote">Notiz</label>
               <textarea id="NoteField" class="materialize-textarea"></textarea>
               <button type="submit" class="btn btn-default" onclick="Materialize.toast('GESPEICHERT', 4000)">speichern</button>
-              <a class="btn btn-default" href="dash.html">zurück</a>
+              <a class="btn btn-default" href="dash.jsp">zurück</a>
           </form>
       </div>
     </div>

@@ -33,6 +33,26 @@ public class NoticeAdministration {
         }
         return new ArrayList<Notice>();
     }
+    public static void removeNotice(int noticeId) {
+        Session session = factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        if(session != null) {
+            try {
+                List<Notice> result = session.createQuery("FROM Notice WHERE noticeId = '" + noticeId + "'").getResultList();
+                if(result != null && !result.isEmpty()) {
+                    Notice removableNotice = result.get(0);
+                    session.delete(removableNotice);
+                    transaction.commit();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                transaction.rollback();
+            } finally {
+                session.close();
+            }
+        }
+    }
+
     public static void setSessionFactory(SessionFactory factory) {
         NoticeAdministration.factory = factory;
     }

@@ -15,9 +15,10 @@
     <%
       if(!LoginServlet.isLoggedIn(request))
           response.sendRedirect("login.jsp");
+      else
+          response.sendRedirect("dash.jsp");
     %>
   </head>
   <body>
-  <h1>HelloWorld</h1>
   </body>
 </html>

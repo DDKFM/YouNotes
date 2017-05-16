@@ -28,6 +28,9 @@ public class Notice {
     @Column(name = "lastModified")
     private Date lastModified;
 
+    @Column(name = "color")
+    private String color;
+
     public Notice() {
 
     }
@@ -78,5 +81,13 @@ public class Notice {
 
     public void setLastModified(Date lastModified) {
         this.lastModified = lastModified;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
