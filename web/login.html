@@ -1,6 +1,6 @@
-<!--<%@ page import="de.mschaedlich.servlets.LoginServlet" %>
+<%@ page import="de.mschaedlich.servlets.LoginServlet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>-->
+<!DOCTYPE html>
 <html>
       <head>
         <meta charset="UTF-8">
@@ -22,7 +22,7 @@
        <!-- Apple iPhone Safari blockieren --->
        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
 
-    <!--    <script>
+       <script>
                 $(document).ready(function(){
                 $('.modal').modal();
                 $(".button-collapse").sideNav();
@@ -68,7 +68,7 @@
         <%
           if(!LoginServlet.isLoggedIn(request))
               response.sendRedirect("login.jsp");
-        %>-->
+        %>
   </head>
 
   <body>
