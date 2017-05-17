@@ -8,7 +8,7 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.js"></script>
         <link rel="stylesheet" href="css/materialize.css">
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!--<link rel="apple-touch-icon" href="media/icon_webapp.png"/>
         <link rel="icon" type="image/png" href="media/favicon.png" sizes="32x32">-->
@@ -55,7 +55,7 @@
                                     data: "requested=remove&noticeID=" + noticeId,
                                     complete: function(data) {
                                         $("#noteContainer_" + noticeId).fadeOut("slow");
-                                        loadNotices();
+                                        //loadNotices();
                                     }
                                 });
                             })
