@@ -23,7 +23,7 @@
        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
 
         <script>
-            $(document).ready(function(){
+                $(document).ready(function(){
                 $('.modal').modal();
                 $(".button-collapse").sideNav();
                 loadNotices();
@@ -77,6 +77,7 @@
       <nav>
         <div class="nav-wrapper teal">
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <a href="#" class="brand-logo right"><i class="material-icons">power_settings_new</i></a>
           <ul class="left hide-on-med-and-down">
             <li class="active"><a href="dash.jsp">DASH</a></li>
             <li><a href="#modal1">NEU</a></li>
@@ -85,7 +86,7 @@
             <li>Menü</li>
             <li><a href="dash.jsp">DASH</a></li>
             <li><a href="#modal1">NEU</a></li>
-            <li><a href="#" style="float: right">LOGOUT</li>
+            <li><a href="#"><i class="material-icons">power_settings_new</i> LOGOUT</li>
           </ul>
         </div>
       </nav>
