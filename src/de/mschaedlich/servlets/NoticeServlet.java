@@ -31,7 +31,8 @@ public class NoticeServlet extends HttpServlet {
                             String noticeObject = "{";
                             noticeObject += "\"id\": " + notice.getNoticeId() + ", ";
                             noticeObject += "\"title\": \"" + notice.getTitle() + "\", ";
-                            noticeObject += "\"content\": \"" + notice.getContent() + "\", ";
+                            String content = notice.getContent().replace("\n", "<br/>").replace("\r", "<br/>");
+                            noticeObject += "\"content\": \"" + content + "\", ";
                             noticeObject += "\"color\": \"" + notice.getColor() + "\"";
                             noticeObject += "}";
                             if (noticeList.indexOf(notice) < noticeList.size() - 1) {
@@ -41,6 +42,7 @@ public class NoticeServlet extends HttpServlet {
                             }
                         }
                         jsonResult += "]}";
+                        response.setStatus(200);
                         response.getWriter().append(jsonResult);
                     } else if (requested.equalsIgnoreCase("remove")) {
                         if(request.getParameter("noticeID") != null) {
@@ -55,6 +57,13 @@ public class NoticeServlet extends HttpServlet {
                                 NoticeAdministration.removeNotice(noticeInteger);
                                 response.getWriter().append("{\"status\": \"OK\"");
                             }
+                        }
+                    } else if(requested.equalsIgnoreCase("add")) {
+                        String title = request.getParameter("title");
+                        String content = request.getParameter("content");
+                        if(title != null && content != null) {
+                            NoticeAdministration.addNote(username, title, content);
+                            response.sendRedirect("dash.jsp");
                         }
                     }
                 }

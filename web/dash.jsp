@@ -30,14 +30,20 @@
             });
             function loadNotices() {
                 $("#notePanel").empty();
+                console.log("LoadNotices");
                 $.ajax({
                     type: "POST",
                     url: "notice",
                     data: "requested=all",
+                    error: function(data) {
+                        console.log("Error: " + data);
+                    },
                     success: function(data) {
+                        console.log(data);
                         var array = data.data;
                         for(var noticeIndex = 0 ; noticeIndex < array.length ; noticeIndex++) {
                             var notice = array[noticeIndex];
+                            console.log(notice);
                             var div = "<div class=\"col s12 m6 13\">";
                             div += "<div class=\"noteContainer\" id=\"noteContainer_" + notice.id + "\">";
                             div += "<a class=\"btn-floating btn-small teal del\"><i class=\"material-icons\" id=\"" + notice.id + "\">delete</i></a>";
@@ -77,19 +83,19 @@
       <nav>
         <div class="nav-wrapper teal">
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <a href="#" class="brand-logo right"><i class="material-icons">power_settings_new</i></a>
+          <a href="logout" class="brand-logo right"><i class="material-icons">power_settings_new</i></a>
           <ul class="left hide-on-med-and-down">
             <li class="active"><a href="dash.jsp">DASH</a></li>
             <li><a href="#modal1">NEU</a></li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li>Menü</li>
-            <li><a href="dash.jsp">DASH</a></li>
-            <li><a href="#modal1">NEU</a></li>
-            <li><a href="#"><i class="material-icons">power_settings_new</i> LOGOUT</li>
-          </ul>
-        </div>
-      </nav>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+        <li>Menü</li>
+        <li><a href="dash.jsp">DASH</a></li>
+        <li><a href="#modal1">NEU</a></li>
+        <li><a href="logout"><i class="material-icons">power_settings_new</i> LOGOUT</a></li>
+    </ul>
+    </div>
+    </nav>
     </div>
 
 
@@ -136,12 +142,12 @@
       <div id="addnote" class="modal-content">
         <h4 id="loginHeader">NOTIZ</h4>
 
-          <form action="/addNote" method="POST">
+          <form action="notice?requested=add" method="POST">
 
               <label for="fieldTitleNote">Titel</label>
-              <input type="text" name="titel"/><br/>
+              <input type="text" name="title"/><br/>
               <label for="fieldNote">Notiz</label>
-              <textarea id="NoteField" class="materialize-textarea"></textarea>
+              <textarea id="NoteField" class="materialize-textarea" name="content"></textarea>
               <button type="submit" class="btn btn-default" onclick="Materialize.toast('GESPEICHERT', 4000)">speichern</button>
               <a class="btn btn-default" href="dash.jsp">zurück</a>
           </form>

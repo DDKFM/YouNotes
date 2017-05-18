@@ -52,6 +52,29 @@ public class NoticeAdministration {
             }
         }
     }
+    public static void addNote(String username, String title, String content) {
+        Session session = factory.openSession();
+        if(session != null) {
+            Transaction transaction = session.beginTransaction();
+            try {
+                Notice notice = new Notice();
+                User user = UserAdministration.getUserByUsername(username);
+                notice.setAuthor(user);
+                notice.setColor("#000000");
+                notice.setContent(content);
+                notice.setLastModified(new Date());
+                notice.setCreated(new Date());
+                notice.setTitle(title);
+                session.save(notice);
+                transaction.commit();
+            } catch(Exception e) {
+                transaction.rollback();
+            } finally {
+                if(session != null)
+                    session.close();
+            }
+        }
+    }
 
     public static void setSessionFactory(SessionFactory factory) {
         NoticeAdministration.factory = factory;
