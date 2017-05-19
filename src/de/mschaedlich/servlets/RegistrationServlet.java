@@ -35,12 +35,12 @@ public class RegistrationServlet extends HttpServlet {
                 request.getParameter("email") != null &&
                 request.getParameter("password") != null &&
                 request.getParameter("repeatPassword") != null) {
-            String username = request.getParameter("username");
+            String username = new String(request.getParameter("username").getBytes(), "UTF-8");
             String email = request.getParameter("email");
             String mailRegex = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
             if(email.matches(mailRegex)) {
-                String password = DigestUtils.sha256Hex(request.getParameter("password"));
-                String repeatPassword = DigestUtils.sha256Hex(request.getParameter("repeatPassword"));
+                String password = new String(DigestUtils.sha256Hex(request.getParameter("password")).getBytes(), "UTF-8");
+                String repeatPassword = new String(DigestUtils.sha256Hex(request.getParameter("repeatPassword")).getBytes(), "UTF-8");
                 if(password.equalsIgnoreCase(repeatPassword)) {
                     Registration registration = new Registration();
                     registration.setEmail(email);
