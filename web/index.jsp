@@ -5,8 +5,8 @@
     <title>Simple Notes</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-    <!--<link rel="apple-touch-icon" href="media/icon_webapp.png"/>
-    <link rel="icon" type="image/png" href="media/favicon.png" sizes="32x32">-->
+    <link rel="apple-touch-icon" href="media/icon-mobile.png"/>
+    <!--<link rel="icon" type="image/png" href="media/favicon.png" sizes="32x32">-->
 
     <!-- WebApp settings -->
       <meta name="mobile-web-app-capable" content="yes">
