@@ -1,1 +1,12 @@
-ideas
+different colors for different notices (already implemented in the backend)
+edit notices
+"Willst du diese Notiz wirklich löschen"-dialog, if the user wants to remove a notice
+HTML5 or RTF notices
+Captch in the registration process
+encrypted notices
+settings 
+	color settings (of the frontend)
+	change username, password,...
+sharing
+admin area to remove user, block user, ...
+LDAP Integration and Possiblity to block the "register"-Button
