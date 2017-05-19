@@ -9,7 +9,7 @@
         <script type="text/javascript" src="js/materialize.js"></script>
         <link rel="stylesheet" href="css/materialize.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
         <!--<link rel="apple-touch-icon" href="media/icon_webapp.png"/>
         <link rel="icon" type="image/png" href="media/favicon.png" sizes="32x32">-->
 
@@ -17,7 +17,7 @@
          <meta name="mobile-web-app-capable" content="yes">
          <meta name="apple-mobile-web-app-capable" content="yes">
          <link rel="manifest" href="manifest.json">
-         <meta name="youNOTE" content="youNote">
+         <meta name="YouNote" content="YouNote">
 
        <!-- Apple iPhone Safari blockieren --->
        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
