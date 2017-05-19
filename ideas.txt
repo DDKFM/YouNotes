@@ -1,4 +1,5 @@
 different colors for different notices (already implemented in the backend)
+overlay the date of the last modification in the note container
 edit notices
 "Willst du diese Notiz wirklich löschen"-dialog, if the user wants to remove a notice
 HTML5 or RTF notices
