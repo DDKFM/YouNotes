@@ -9,8 +9,8 @@
     <!--<link rel="icon" type="image/png" href="media/favicon.png" sizes="32x32">-->
 
     <!-- WebApp settings -->
-      <meta name="mobile-web-app-capable" content="no">
-      <meta name="apple-mobile-web-app-capable" content="no">
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="manifest" href="manifest.json">
       <meta name="YouNote" content="YouNote">
 
