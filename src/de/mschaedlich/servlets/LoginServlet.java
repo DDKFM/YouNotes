@@ -22,8 +22,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(req.getParameter("username") != null && req.getParameter("password") != null) {
-            String username = req.getParameter("username");
-            String password = req.getParameter("password");
+            String username = new String(req.getParameter("username").getBytes(), "UTF-8");
+            String password = new String(req.getParameter("password").getBytes(), "UTF-8");
             password = DigestUtils.sha256Hex(password);
 
             User user = UserAdministration.getUserByUsername(username);

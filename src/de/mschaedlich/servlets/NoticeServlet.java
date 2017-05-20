@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.List;
 
 /**
@@ -33,6 +34,7 @@ public class NoticeServlet extends HttpServlet {
                             noticeObject += "\"title\": \"" + notice.getTitle() + "\", ";
                             String content = notice.getContent().replace("\n", "<br/>").replace("\r", "<br/>");
                             noticeObject += "\"content\": \"" + content + "\", ";
+                            noticeObject += "\"lastModified\": \"" + notice.getLastModified() + "\", ";
                             noticeObject += "\"color\": \"" + notice.getColor() + "\"";
                             noticeObject += "}";
                             if (noticeList.indexOf(notice) < noticeList.size() - 1) {
@@ -59,8 +61,8 @@ public class NoticeServlet extends HttpServlet {
                             }
                         }
                     } else if(requested.equalsIgnoreCase("add")) {
-                        String title = request.getParameter("title");
-                        String content = request.getParameter("content");
+                        String title = new String(request.getParameter("title").getBytes(), Charset.forName("UTF-8"));
+                        String content = new String(request.getParameter("content").getBytes(), Charset.forName("UTF-8"));
                         if(title != null && content != null) {
                             NoticeAdministration.addNote(username, title, content);
                             response.sendRedirect("dash.jsp");
