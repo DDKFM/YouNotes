@@ -22,11 +22,19 @@
        <!-- Apple iPhone Safari blockieren --->
        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
 
+          <link href="//cdn.bri.io/mbox/dist/mbox-0.0.1.min.css" rel="stylesheet">
+          <script src="//cdn.bri.io/mbox/dist/mbox-0.0.1.min.js"></script>
+
+
+          <script src="trumbowyg/dist/trumbowyg.min.js"></script>
+          <link rel="stylesheet" href="trumbowyg/dist/ui/trumbowyg.min.css">
+
         <script>
                 $(document).ready(function(){
-                $('.modal').modal();
-                $(".button-collapse").sideNav();
-                loadNotices();
+                    $('.modal').modal();
+                    $(".button-collapse").sideNav();
+                    loadNotices();
+                    $('#NoteField').trumbowyg();
             });
             function loadNotices() {
                 $("#notePanel").empty();
@@ -44,26 +52,32 @@
                         for(var noticeIndex = 0 ; noticeIndex < array.length ; noticeIndex++) {
                             var notice = array[noticeIndex];
                             console.log(notice);
-                            var div = "<div class=\"col s12 m6 13\">";
+                            var div = "<div class=\"col s12 m6 13 tooltipped\" data-position=\"bottom\" data-delay=\"500\" data-tooltip=\"Letzte Änderung: " + notice.lastModified + "\">";
                             div += "<div class=\"noteContainer\" id=\"noteContainer_" + notice.id + "\">";
                             div += "<a class=\"btn-floating btn-small teal del\"><i class=\"material-icons\" id=\"" + notice.id + "\">delete</i></a>";
                             div += "<h5 id=\"NoteTitle\">" + notice.title + "</h5>";
                             div += "<div id=\"NoteContent\">";
                             div += "<p>" + notice.content + "</p>";
-                            div += "</div></div></div>";
+                            div += "</div></div></div></a>";
 
                             $("#notePanel").append(div);
+                            console.log(div);
+                            $('.tooltipped').tooltip({delay: 50});
                             $("#noteContainer_" + notice.id + " .material-icons").click(function(event) {
                                 var noticeId = $(event.target).attr("id");
-                                $.ajax({
-                                    type: "POST",
-                                    url: "notice",
-                                    data: "requested=remove&noticeID=" + noticeId,
-                                    complete: function(data) {
-                                        $("#noteContainer_" + noticeId).fadeOut("slow");
-                                        //loadNotices();
+                                mbox.confirm('Möchten Sie diese Notiz wirklich löschen?', function(yes) {
+                                    if (yes) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "notice",
+                                            data: "requested=remove&noticeID=" + noticeId,
+                                            complete: function(data) {
+                                                $("#noteContainer_" + noticeId).fadeOut("slow");
+                                                //loadNotices();
+                                            }
+                                        });
                                     }
-                                });
+                                })
                             })
                         }
                     }
@@ -143,11 +157,10 @@
         <h4 id="loginHeader">NOTIZ</h4>
 
           <form action="notice?requested=add" method="POST">
-
               <label for="fieldTitleNote">Titel</label>
               <input type="text" name="title"/><br/>
               <label for="fieldNote">Notiz</label>
-              <textarea id="NoteField" class="materialize-textarea" name="content"></textarea>
+              <textarea id="NoteField" class="materialize-textarea" name="content" rows="10"></textarea>
               <button type="submit" class="btn btn-default" onclick="Materialize.toast('GESPEICHERT', 4000)">speichern</button>
               <a class="btn btn-default" href="dash.jsp">zurück</a>
           </form>

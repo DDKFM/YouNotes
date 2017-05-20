@@ -34,6 +34,7 @@ public class NoticeServlet extends HttpServlet {
                             noticeObject += "\"title\": \"" + notice.getTitle() + "\", ";
                             String content = notice.getContent().replace("\n", "<br/>").replace("\r", "<br/>");
                             noticeObject += "\"content\": \"" + content + "\", ";
+                            noticeObject += "\"lastModified\": \"" + notice.getLastModified() + "\", ";
                             noticeObject += "\"color\": \"" + notice.getColor() + "\"";
                             noticeObject += "}";
                             if (noticeList.indexOf(notice) < noticeList.size() - 1) {
