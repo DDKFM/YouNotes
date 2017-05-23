@@ -1,4 +1,5 @@
 <%@ page import="de.mschaedlich.servlets.LoginServlet" %>
+<%@ page import="de.mschaedlich.util.Version" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -151,7 +152,6 @@
 <a class="btn-floating btn-large teal" id="add" href="#modal1">
     <i class="large material-icons">mode_edit</i>
 </a>
-
 <div id="modal1" class="modal">
     <div id="addnote" class="modal-content">
         <h4 id="loginHeader">NOTIZ</h4>
@@ -166,7 +166,9 @@
         </form>
     </div>
 </div>
-
+<Label style="color: gray;position: absolute;left: 5px">
+    Version: <%= Version.VERSION %>
+</Label>
 
 </body>
 </html>
